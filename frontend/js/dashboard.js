@@ -3,6 +3,11 @@
  * Refined fintech interface with subtle animations
  */
 
+// API Base URL - automatically detects environment
+const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? '' // Use relative URLs for local development
+    : ''; // Use relative URLs for Vercel (routes are configured in vercel.json)
+
 // Chart instance
 let spendingChart = null;
 let fireworksInterval = null;
@@ -27,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Account Overview Card Click - Show Balance Modal
     accountOverviewCard.addEventListener('click', async () => {
         try {
-            const response = await fetch('/api/balance', {
+            const response = await fetch(`${API_BASE_URL}/api/balance`, {
                 method: 'GET',
                 credentials: 'include'
             });
@@ -122,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.textContent = 'Processing...';
 
         try {
-            const response = await fetch('/api/transfer', {
+            const response = await fetch(`${API_BASE_URL}/api/transfer`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -554,7 +559,7 @@ async function loadRecentActivity() {
     const container = document.getElementById('recentActivityContainer');
 
     try {
-        const response = await fetch('/api/transactions?limit=5', {
+        const response = await fetch(`${API_BASE_URL}/api/transactions?limit=5`, {
             method: 'GET',
             credentials: 'include'
         });
@@ -625,7 +630,7 @@ async function loadTransactions() {
     const transactionsContainer = document.getElementById('transactionsContainer');
 
     try {
-        const response = await fetch('/api/transactions?limit=10', {
+        const response = await fetch(`${API_BASE_URL}/api/transactions?limit=10`, {
             method: 'GET',
             credentials: 'include'
         });

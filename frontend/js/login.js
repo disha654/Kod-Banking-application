@@ -15,6 +15,11 @@
  * @module login
  */
 
+// API Base URL - automatically detects environment
+const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? '' // Use relative URLs for local development
+    : ''; // Use relative URLs for Vercel (routes are configured in vercel.json)
+
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('loginForm');
     const formError = document.getElementById('form-error');
@@ -125,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             // Send login request to backend API
             // credentials: 'include' ensures cookies are sent and received
-            const response = await fetch('/api/login', {
+            const response = await fetch(`${API_BASE_URL}/api/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

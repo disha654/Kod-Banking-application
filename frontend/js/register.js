@@ -9,6 +9,11 @@
  * @module register
  */
 
+// API Base URL - automatically detects environment
+const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? '' // Use relative URLs for local development
+    : ''; // Use relative URLs for Vercel (routes are configured in vercel.json)
+
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('registerForm');
     const formError = document.getElementById('form-error');
@@ -169,9 +174,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             console.log('Sending registration request to /api/register');
+            console.log('API Base URL:', API_BASE_URL);
             
             // Send registration request to backend API
-            const response = await fetch('/api/register', {
+            const response = await fetch(`${API_BASE_URL}/api/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
