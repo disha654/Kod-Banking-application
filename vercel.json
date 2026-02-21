@@ -1,0 +1,34 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/index.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "frontend/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "api/index.py"
+    },
+    {
+      "src": "/(.*\\.(css|js|html|png|jpg|jpeg|gif|svg|ico))",
+      "dest": "frontend/$1"
+    },
+    {
+      "src": "/",
+      "dest": "frontend/register.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "frontend/$1"
+    }
+  ],
+  "env": {
+    "PYTHONPATH": "$PYTHONPATH:./backend"
+  }
+}
