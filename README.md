@@ -426,7 +426,8 @@ pytest --cov=backend
 - Set up automated backups
 - Monitor application performance
 
-## License
+## Deployed URL 
+https://banking-application-2l9h.vercel.app/
 
 [Disha V]
 
