@@ -3,10 +3,11 @@
   "builds": [
     {
       "src": "api/index.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "15mb"
-      }
+      "use": "@vercel/python"
+    },
+    {
+      "src": "frontend/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -15,23 +16,8 @@
       "dest": "api/index.py"
     },
     {
-      "src": "/(.*\\.(css|js|html|png|jpg|jpeg|gif|svg|ico))",
-      "dest": "frontend/$1"
-    },
-    {
-      "src": "/",
-      "dest": "frontend/register.html"
-    },
-    {
-      "src": "/(login|register|dashboard)\\.html",
-      "dest": "frontend/$1.html"
-    },
-    {
       "src": "/(.*)",
       "dest": "frontend/$1"
     }
-  ],
-  "env": {
-    "PYTHONPATH": "./backend"
-  }
+  ]
 }
