@@ -429,8 +429,4 @@ pytest --cov=backend
 ## Deployed URL 
 https://banking-application-2l9h.vercel.app/
 
-[Disha V]
-
-## Support
-
-For issues, questions, or contributions, please contact [your-contact-info].
+[
