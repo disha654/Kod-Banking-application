@@ -428,7 +428,7 @@ pytest --cov=backend
 
 ## License
 
-[Your License Here]
+[Disha V]
 
 ## Support
 
