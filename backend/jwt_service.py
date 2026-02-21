@@ -168,7 +168,7 @@ def store_token(token, uid, expiry):
     
     try:
         query = """
-            INSERT INTO CJWT (token, uid, expiry)
+            INSERT INTO cjwt (token, uid, expiry)
             VALUES (%s, %s, %s)
         """
         params = (token, uid, expiry)
@@ -203,7 +203,7 @@ def token_exists(token):
         return False
     
     try:
-        query = "SELECT COUNT(*) as count FROM CJWT WHERE token = %s"
+        query = "SELECT COUNT(*) as count FROM cjwt WHERE token = %s"
         params = (token,)
         
         results = execute_query(query, params, fetch=True)

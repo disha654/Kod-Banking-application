@@ -179,13 +179,13 @@ def user_exists(username=None, email=None):
     
     try:
         if username and email:
-            query = "SELECT COUNT(*) as count FROM kodusers WHERE username = %s OR email = %s"
+            query = "SELECT COUNT(*) as count FROM users WHERE username = %s OR email = %s"
             params = (username, email)
         elif username:
-            query = "SELECT COUNT(*) as count FROM kodusers WHERE username = %s"
+            query = "SELECT COUNT(*) as count FROM users WHERE username = %s"
             params = (username,)
         else:
-            query = "SELECT COUNT(*) as count FROM kodusers WHERE email = %s"
+            query = "SELECT COUNT(*) as count FROM users WHERE email = %s"
             params = (email,)
         
         results = execute_query(query, params, fetch=True)
@@ -243,7 +243,7 @@ def create_user(uid, username, password, email, phone, balance=1000002.00):
         
         # Insert user into database
         query = """
-            INSERT INTO kodusers (uid, username, email, password, balance, phone)
+            INSERT INTO users (uid, username, email, password, balance, phone)
             VALUES (%s, %s, %s, %s, %s, %s)
         """
         params = (uid, username, email, hashed_password, balance, phone)
@@ -289,7 +289,7 @@ def get_user_by_username(username):
     try:
         query = """
             SELECT uid, username, email, password, balance, phone, created_at
-            FROM kodusers
+            FROM users
             WHERE username = %s
         """
         params = (username,)
@@ -322,7 +322,7 @@ def get_balance(username):
         raise ValueError("Invalid username format")
     
     try:
-        query = "SELECT balance FROM kodusers WHERE username = %s"
+        query = "SELECT balance FROM users WHERE username = %s"
         params = (username,)
         
         results = execute_query(query, params, fetch=True)
@@ -432,7 +432,7 @@ def transfer_money(sender_username, receiver_username, amount):
         
         # Update sender balance
         update_sender_query = """
-            UPDATE kodusers 
+            UPDATE users 
             SET balance = %s 
             WHERE username = %s
         """
@@ -440,7 +440,7 @@ def transfer_money(sender_username, receiver_username, amount):
         
         # Update receiver balance
         update_receiver_query = """
-            UPDATE kodusers 
+            UPDATE users 
             SET balance = %s 
             WHERE username = %s
         """
