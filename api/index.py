@@ -5,10 +5,13 @@ import sys
 import os
 
 # Add backend directory to Python path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'backend'))
+backend_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'backend'))
+if backend_path not in sys.path:
+    sys.path.insert(0, backend_path)
 
+# Import Flask app
 from app import app
 
-# Vercel expects a handler function
-def handler(request, context):
-    return app(request.environ, context)
+# Export the Flask app for Vercel
+# Vercel will automatically handle WSGI
+app = app
