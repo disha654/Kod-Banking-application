@@ -1,0 +1,643 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #E5E7EB;
+    background: #0B0F14;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* Form Wrapper */
+.form-wrapper {
+    background: #141A22;
+    border: 1px solid #1F2933;
+    border-radius: 18px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    padding: 40px;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Headings */
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #E5E7EB;
+    margin-bottom: 8px;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #9CA3AF;
+    font-size: 16px;
+    margin-bottom: 32px;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 24px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #9CA3AF;
+    margin-bottom: 8px;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"] {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 1.5px solid #1F2933;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    background-color: #0B0F14;
+    color: #E5E7EB;
+    font-family: inherit;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus {
+    outline: none;
+    border-color: #F59E0B;
+    background-color: #141A22;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder,
+input[type="email"]::placeholder,
+input[type="tel"]::placeholder {
+    color: #64748B;
+}
+
+/* Error States */
+input.error {
+    border-color: #EF4444;
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+input.error:focus {
+    border-color: #EF4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Error Messages */
+.error-message {
+    display: none;
+    color: #EF4444;
+    font-size: 13px;
+    margin-top: 6px;
+    min-height: 0;
+    font-weight: 500;
+}
+
+#form-error {
+    display: none !important;
+    text-align: center;
+    padding: 0;
+    margin-top: 0;
+}
+
+/* Buttons */
+.btn-primary {
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0B0F14;
+    background: #F59E0B;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.4);
+}
+
+.btn-primary:active {
+    transform: scale(0.96);
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Form Footer */
+.form-footer {
+    text-align: center;
+    margin-top: 24px;
+    color: #9CA3AF;
+    font-size: 14px;
+}
+
+.form-footer a {
+    color: #F59E0B;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.form-footer a:hover {
+    color: #D97706;
+    text-decoration: underline;
+}
+
+/* Success Message */
+.success-message {
+    background-color: rgba(16, 185, 129, 0.1);
+    border: 1px solid #10B981;
+    color: #10B981;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+/* Dashboard Specific Styles */
+.dashboard-container {
+    text-align: center;
+}
+
+/* Check Balance Button Styling */
+.btn-check-balance {
+    padding: 16px 32px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    margin: 20px 0;
+}
+
+.btn-check-balance:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.btn-check-balance:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+/* Balance Display Message Styling */
+.balance-display {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 24px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #f7fafc 0%, #e6f2ff 100%);
+    border: 2px solid #667eea;
+    border-radius: 12px;
+    display: none;
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.15);
+}
+
+.balance-display.show {
+    display: block;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .form-wrapper {
+        padding: 28px 24px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="tel"] {
+        padding: 10px 14px;
+        font-size: 16px;
+    }
+
+    .btn-primary {
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    /* Dashboard responsive styles */
+    .dashboard-wrapper {
+        padding: 28px 24px;
+    }
+
+    .btn-check-balance {
+        padding: 14px 28px;
+        font-size: 16px;
+    }
+
+    .balance-display {
+        font-size: 20px;
+        padding: 16px;
+    }
+
+    .balance-message {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 12px;
+    }
+
+    .form-wrapper {
+        padding: 24px 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    /* Dashboard mobile styles */
+    .dashboard-wrapper {
+        padding: 24px 20px;
+    }
+
+    .btn-check-balance {
+        padding: 12px 24px;
+        font-size: 15px;
+    }
+
+    .balance-display {
+        font-size: 18px;
+        padding: 14px;
+    }
+
+    .balance-message {
+        font-size: 20px;
+    }
+}
+
+/* Loading State */
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Dashboard Wrapper with Animation Background */
+.dashboard-wrapper {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    animation: fadeIn 0.5s ease-in;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated background gradient for celebration */
+.dashboard-wrapper.celebrating {
+    animation: celebrationGlow 2s ease-in-out;
+}
+
+@keyframes celebrationGlow {
+    0%, 100% {
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        box-shadow: 0 10px 60px rgba(102, 126, 234, 0.4), 0 0 40px rgba(118, 75, 162, 0.3);
+    }
+}
+
+.dashboard-content {
+    position: relative;
+    z-index: 1;
+}
+
+.balance-section {
+    text-align: center;
+    margin: 32px 0;
+}
+
+.balance-message {
+    font-size: 28px;
+    font-weight: 700;
+    color: #667eea;
+    text-shadow: 0 2px 4px rgba(102, 126, 234, 0.2);
+}
+
+/* Celebration Container */
+.celebration-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Enhanced Balance Display Animation */
+.balance-display {
+    animation: balanceReveal 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes balanceReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translateY(20px);
+    }
+    50% {
+        transform: scale(1.05) translateY(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+
+/* Transfer Section */
+.transfer-section {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 2px solid #e2e8f0;
+}
+
+.transfer-section h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.transfer-form {
+    background: #f7fafc;
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Message Styles */
+.message {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.message.success {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.message.error {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Dashboard Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-wrapper {
+        padding: 30px 20px;
+    }
+    
+    .transfer-section {
+        margin-top: 30px;
+        padding-top: 30px;
+    }
+    
+    .transfer-form {
+        padding: 20px;
+    }
+}
+
+
+/* Transactions Section */
+.transactions-section {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 2px solid #e2e8f0;
+}
+
+.transactions-section h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.transactions-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.transactions-table thead {
+    background: #667eea;
+    color: white;
+}
+
+.transactions-table th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.transactions-table tbody tr {
+    border-bottom: 1px solid #e2e8f0;
+    transition: background-color 0.2s ease;
+}
+
+.transactions-table tbody tr:hover {
+    background-color: #f7fafc;
+}
+
+.transactions-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.transactions-table td {
+    padding: 12px 16px;
+    font-size: 14px;
+    color: #4a5568;
+}
+
+.transaction-type {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.type-sent {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+}
+
+.type-received {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+}
+
+.amount-positive {
+    color: #10B981;
+    font-weight: 600;
+}
+
+.amount-negative {
+    color: #EF4444;
+    font-weight: 600;
+}
+
+.no-transactions {
+    text-align: center;
+    color: #718096;
+    padding: 40px 20px;
+    font-size: 14px;
+}
+
+.loading-message {
+    text-align: center;
+    color: #718096;
+    padding: 20px;
+    font-size: 14px;
+}
+
+.error-message {
+    text-align: center;
+    color: #EF4444;
+    padding: 20px;
+    font-size: 14px;
+    background-color: rgba(239, 68, 68, 0.1);
+    border-radius: 8px;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+    .transactions-table {
+        font-size: 12px;
+    }
+    
+    .transactions-table th,
+    .transactions-table td {
+        padding: 8px 12px;
+    }
+    
+    .transaction-type {
+        padding: 2px 8px;
+        font-size: 11px;
+    }
+}

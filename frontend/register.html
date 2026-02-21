@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - KodBank</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-wrapper">
+            <h1>Create Your Account</h1>
+            <p class="subtitle">Join KodBank today</p>
+            
+            <form id="registerForm" novalidate>
+                <div class="form-group">
+                    <label for="uid">User ID</label>
+                    <input 
+                        type="text" 
+                        id="uid" 
+                        name="uid" 
+                        required 
+                        maxlength="50"
+                        placeholder="Enter your user ID"
+                    >
+                    <span class="error-message" id="uid-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="uname">Username</label>
+                    <input 
+                        type="text" 
+                        id="uname" 
+                        name="uname" 
+                        required 
+                        maxlength="50"
+                        placeholder="Choose a username"
+                    >
+                    <span class="error-message" id="uname-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        required 
+                        minlength="6"
+                        placeholder="Create a strong password (min 6 characters)"
+                    >
+                    <span class="error-message" id="password-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required 
+                        maxlength="100"
+                        placeholder="your.email@example.com"
+                    >
+                    <span class="error-message" id="email-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        required 
+                        maxlength="20"
+                        placeholder="Enter your phone number"
+                    >
+                    <span class="error-message" id="phone-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn-primary">Register</button>
+                </div>
+
+                <div id="form-error" class="error-message"></div>
+            </form>
+
+            <p class="form-footer">
+                Already have an account? <a href="login.html">Login here</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="js/register.js"></script>
+</body>
+</html>
