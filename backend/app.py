@@ -35,12 +35,22 @@ app.config['JSON_SORT_KEYS'] = False
 # Configure CORS to allow frontend origin with credentials support
 # This allows the frontend to send cookies (JWT tokens) with requests
 # Task 12.1: Configure CORS for Flask app
-CORS(app, 
-     origins=['http://localhost:3000', 'http://localhost:5500', 'http://127.0.0.1:5500', 'http://127.0.0.1:3000'],
-     supports_credentials=True,
-     allow_headers=['Content-Type', 'Authorization'],
-     methods=['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
-)
+# Allow all origins in production (Vercel deployment) or specific origins in development
+allowed_origins = os.getenv('ALLOWED_ORIGINS', '*')
+if allowed_origins == '*':
+    CORS(app, 
+         supports_credentials=True,
+         allow_headers=['Content-Type', 'Authorization'],
+         methods=['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+    )
+else:
+    origins_list = [origin.strip() for origin in allowed_origins.split(',')]
+    CORS(app, 
+         origins=origins_list,
+         supports_credentials=True,
+         allow_headers=['Content-Type', 'Authorization'],
+         methods=['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+    )
 
 # Initialize database connection pool
 # This can be skipped in testing mode by setting SKIP_DB_INIT=1
@@ -408,17 +418,24 @@ def transactions():
         }), 500
 
 
-# Serve frontend files
+# Serve frontend files (only for local development)
+# In Vercel, frontend files are served directly by Vercel's CDN
 @app.route('/')
 def index():
     """Serve the registration page as the default landing page."""
-    return send_from_directory('../frontend', 'register.html')
+    try:
+        return send_from_directory('../frontend', 'register.html')
+    except:
+        return jsonify({'message': 'Frontend files served by Vercel CDN'}), 200
 
 
 @app.route('/<path:path>')
 def serve_frontend(path):
     """Serve frontend static files (HTML, CSS, JS)."""
-    return send_from_directory('../frontend', path)
+    try:
+        return send_from_directory('../frontend', path)
+    except:
+        return jsonify({'message': 'Frontend files served by Vercel CDN'}), 200
 
 
 if __name__ == '__main__':
